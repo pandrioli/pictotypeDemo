@@ -57,8 +57,8 @@ function wrong_word() {
 function show_popup(msg, color, stay) {
   popup = document.getElementById("game-popup");
   popup.innerHTML = msg;
-  popup.style.backgroundColor = color;
-  TweenLite.to(popup, .5, {opacity: .8, scale: 2, delay: .3, ease: Power3.easeOut, onComplete: function() {
+  //popup.style.color = color;
+  TweenLite.to(popup, .5, {opacity: 1, scale: 2, delay: .3, ease: Power3.easeOut, onComplete: function() {
     if (!stay) TweenLite.to(popup, .5, {opacity:0, scale: 1, ease: Power3.easeOut});
   }});
 }
