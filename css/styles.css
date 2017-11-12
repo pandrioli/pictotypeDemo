@@ -21,6 +21,17 @@ body {
   }
 }
 
+@keyframes pulsate_little {
+  0% {
+    opacity: .8;
+    transform: scale(1);
+}
+  100% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
 .loader {
   position: fixed;
   top: 0;
@@ -60,7 +71,6 @@ body {
 }
 
 
-
 .game-container {
   max-width: 1000px;
   height: auto;
@@ -70,8 +80,19 @@ body {
   overflow: hidden;
   font-family: 'Share Tech Mono',monospace;
   font-weight: bold;
+  text-align: center;
 }
 
+.mode-info {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 850px;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+  text-align: center;
+  font-size: 2em;
+}
 
 .game-panel {
   float: left;
@@ -83,6 +104,31 @@ body {
   text-align: center;
   color: white;
   font-size: 2em;
+  border: none;
+  text-decoration: none;
+}
+
+.mode-button {
+  width: 40%;
+  min-width: 200px;
+  display: block;
+  float: none;
+  background-color: rgb(23, 150, 221);
+  box-shadow: 0 0 20px rgb(23, 150, 221);
+  margin: 10px auto;
+}
+
+.mode-label {
+  float: none;
+  width: 40%;
+  min-width: 200px;
+  background-color: rgb(221,150,23);
+  box-shadow: 0 0 20px rgb(221,150,23);
+  margin: 10px auto;
+  animation-name: pulsate_little;
+  animation-duration: .5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 .game-phrase  {
@@ -96,21 +142,18 @@ body {
 }
 
 .game-timer {
-  width: 15.66%;
+  width: 26.2%;
   background-color: rgb(221,150,23);
   box-shadow: 0 0 20px rgb(221, 150, 23);
 }
 
 .game-cancel {
-  width: 15.66%;
+  float: right;
+  width: 5%;
   margin: .5%;
   background-color: red;
   box-shadow: 0 0 20px red;
   cursor: pointer;
-}
-
-.game-cancel::before {
-  content: "CANCELAR";
 }
 
 .game-images-container {
@@ -186,7 +229,7 @@ body {
   color: lightgray;
 }
 
-#game-popup {
+.game-popup {
   opacity: 0;
   pointer-events: none;
   width: 20vh;
@@ -198,12 +241,12 @@ body {
   left: 0;
   right: 0;
   margin: auto;
-  color: white;
+  color: yellow;
   font-size: 3em;
   text-align: center;
   vertical-align: middle;
   border-radius: 50%;
-  text-shadow: 2px 2px 3px black;
+  text-shadow: -2px -2px 3px rgba(0,0,0,.5), 2px -2px 3px rgba(0,0,0,.5), -2px 2px 3px rgba(0,0,0,.5), 2px 2px 3px rgba(0,0,0,.5);
 }
 
 @media (max-height: 750px) {
@@ -219,12 +262,8 @@ body {
   .game-phrase {
     width: 74.3%;
   }
-  .game-cancel {
-    width: 7%;
-    float: right;
-  }
-  .game-cancel::before {
-    content: "X";
+  .game-timer {
+    width: 17.6%;
   }
 }
 
@@ -232,14 +271,12 @@ body {
   .game-phrase {
     width: 99%;
   }
-  .game-timer {
-    width: 19%;
-  }
   .game-cancel {
     width: 19%;
+    float:right;
   }
-  .game-cancel::before {
-    content: "CANCELAR";
+  .game-timer {
+    width: 19%;
   }
 
   .game-images-container div {
@@ -267,10 +304,10 @@ body {
     width: 99%;
   }
   .game-timer {
-    width: 49%;
+    width: 24%;
   }
   .game-cancel {
-    width: 49%;
+    width: 24%;
   }
   .game-images-container {
     clear: both;

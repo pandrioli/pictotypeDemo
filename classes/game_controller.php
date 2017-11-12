@@ -8,10 +8,10 @@ class GameController {
     $this->loadWords();
   }
 
-  public function getNewGame() {
+  public function getNewGame($mode) {
     $phrase = $this->phrases[array_rand($this->phrases)];
     $words = $this->getGameWords($phrase);
-    $game = new Game($phrase, $words);
+    $game = new Game($phrase, $words, $mode);
     return $game;
   }
 
@@ -27,6 +27,20 @@ class GameController {
     $phrases[] = "MAS VALE MAÑA QUE FUERZA";
     $phrases[] = "HAZ BIEN Y NO MIRES A QUIEN";
     $phrases[] = "CUANDO EL RIO SUENA AGUA LLEVA";
+    $phrases[] = "DE TAL PALO TAL ASTILLA";
+    $phrases[] = "MIENTRAS HAY VIDA HAY ESPERANZA";
+    $phrases[] = "QUIEN SIEMBRA VIENTOS RECOGE TEMPESTADES";
+    $phrases[] = "EN EL PAIS DE LOS CIEGOS EL TUERTO ES REY";
+    $phrases[] = "MUERTO EL PERRO SE ACABO LA RABIA";
+    $phrases[] = "NO HAY MAL QUE POR BIEN NO VENGA";
+    $phrases[] = "CRIA CUERVOS Y TE SACARAN LOS OJOS";
+    $phrases[] = "A QUIEN MADRUGA DIOS LO AYUDA";
+    $phrases[] = "DIME CON QUIEN ANDAS Y TE DIRE QUIEN ERES";
+    $phrases[] = "DEL DICHO AL HECHO HAY MUCHO TRECHO";
+    $phrases[] = "HOMBRE PREVENIDO VALE POR DOS";
+    $phrases[] = "MAS VALE MAÑA QUE FUERZA";
+    $phrases[] = "DEL ARBOL CAIDO TODOS HACEN LEÑA";
+    $phrases[] = "EL HABITO NO HACE AL MONJE";
     $this->phrases = $phrases;
   }
   private function loadWords() {
